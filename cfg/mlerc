@@ -1,0 +1,11 @@
+!/usr/bin/env sh
+
+echo '-l1'
+echo '-z1'
+echo '-Kirises,,1'
+echo '-nirises'
+
+# use git grep if '.git' exists
+if [ -d '.git' ]; then
+    echo '-kcmd_grep,M-q,git grep --color=never -P -i -I -n %s 2>/dev/null'
+fi
