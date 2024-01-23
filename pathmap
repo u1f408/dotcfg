@@ -1,0 +1,6 @@
+cfg/gitconfig .gitconfig 0644
+cfg/profile .profile 0644
+cfg/bashrc .bashrc 0644
+cfg/tmux.conf .config/tmux/tmux.conf 0644
+cfg/batconfig .config/bat/config 0644
+bin/ta .local/bin/,ta 0755

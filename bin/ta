@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+_tmux='tmux start ;'
+[ "$#" -lt 1 ] && exec /usr/bin/env ${_tmux} ls
+exec /usr/bin/env ${_tmux} new -AD -s "$1"

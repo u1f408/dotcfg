@@ -1,0 +1,20 @@
+[init]
+	defaultBranch = main
+[diff]
+	noprefix = true
+	colormoved = default
+	colormovedws = allow-indentation-change
+[url "ssh://git@github.com/"]
+	pushInsteadOf = "https://github.com/"
+[url "ssh://git@git.sr.ht/"]
+	pushInsteadOf = "https://git.sr.ht/"
+[remote "origin"]
+	fetch = +refs/notes/*:refs/notes/*
+[notes]
+	displayRef = refs/notes/*
+[alias]
+	st = status -sb
+	ll = log --oneline --graph
+	ch = diff --cached
+	last = log -1 HEAD --stat
+	undo = reset HEAD~1 --mixed

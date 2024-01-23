@@ -1,0 +1,26 @@
+# this file should only be loaded for interactive shells
+[[ $- == *i* ]] || return
+
+# load profile
+[ -f "$HOME/.profile" ] && source "$HOME/.profile"
+
+HISTCONTROL=ignoreboth
+shopt -s histappend
+shopt -s checkwinsize
+shopt -s extglob
+shopt -s globstar
+shopt -s checkjobs
+
+__prompt_userhost() {
+	if [ "x${USER}x" != xirisx ] || [ "x${USER}x" != xdarcyx ] || [ "x${SUDO_UID}x" != xx ]; then
+		printf '%s@' "$USER"
+	fi
+
+	printf '%s' "$HOSTNAME"
+}
+
+__prompt() {
+	printf '%s%% ' "$(__prompt_userhost)"
+}
+
+PS1="\$(__prompt)"
