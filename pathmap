@@ -5,3 +5,4 @@ cfg/tmux.conf .config/tmux/tmux.conf 0644
 cfg/batconfig .config/bat/config 0644
 cfg/mlerc .mlerc 0755
 bin/ta .local/bin/,ta 0755
+bin/pwgen .local/bin/,pwgen 0755

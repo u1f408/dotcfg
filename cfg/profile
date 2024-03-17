@@ -1,8 +1,15 @@
+# load bashrc if needed
+if [ "x${BASH_VERSION}x" != xx ]; then
+	[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
+fi
+
+# set env PATH
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
 export PATH
 
-_EDITORS="mle nvim vim vi"
+# set env EDITOR
+_EDITORS="mle nvim vim vi nano"
 for _ed in ${_EDITORS}; do
 	if command -v "${_ed}" >/dev/null; then
 		EDITOR="${_ed}"
@@ -11,3 +18,6 @@ for _ed in ${_EDITORS}; do
 done
 unset _EDITORS _ed
 export EDITOR
+
+# set misc env vars
+export PAGER="less -FR"
