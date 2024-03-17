@@ -1,0 +1,16 @@
+dejavu: &dejavu DejaVu Sans:style=Regular:size=14
+
+bar:
+  location: top
+  height: 28
+  background: 131b1bff
+  font: *dejavu
+
+  center:
+  - clock:
+      date-format: "%Y-%m-%d"
+      time-format: "%H:%M %Z"
+      content:
+      - string:
+          margin: 5
+          text: "{date} {time}"
