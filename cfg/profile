@@ -21,3 +21,4 @@ export EDITOR
 
 # set misc env vars
 export PAGER="less -FR"
+export NIX_SHELL_PRESERVE_PROMPT=1

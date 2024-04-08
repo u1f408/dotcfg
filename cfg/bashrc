@@ -8,12 +8,27 @@ shopt -s extglob
 shopt -s globstar
 shopt -s checkjobs
 
+__prompt_nixenv() {
+	[ "x${IN_NIX_SHELL}x" == xx ] && return
+
+	__prompt_nixpurity=""
+	[ "x${IN_NIX_SHELL}x" == ximpurex ] && __prompt_nixpurity=":impure"
+	printf ' [nix%s]' "${__prompt_nixpurity}"
+	unset __prompt_nixpurity
+}
+
 __prompt_userhost() {
+	__prompt_usercolor="\033[1;36m"
+	[ "$UID" -eq 0 ] && __prompt_usercolor="\033[1;31m"
+	echo -ne "${__prompt_usercolor}"
+	unset __prompt_usercolor
+
 	if [ "x${USER}x" != xirisx ] && [ "x${USER}x" != xdarcyx ] && [ "x${SUDO_UID}x" != xx ]; then
 		printf '%s@' "$USER"
 	fi
 
 	printf '%s' "$HOSTNAME"
+	echo -ne "\033[0;39m"
 }
 
 __prompt_cwd() {
@@ -21,10 +36,12 @@ __prompt_cwd() {
 	[[ "${__prompt_cwd}" == "$HOME" ]] && __prompt_cwd="~"
 	[[ "${__prompt_cwd}" == "$HOME"/* ]] && __prompt_cwd="~/${__prompt_cwd##"$HOME"/}"
 	printf ' %s' "${__prompt_cwd}"
+	unset __prompt_cwd
 }
 
 __prompt() {
-	printf '\n%s%s\n%% ' "$(__prompt_userhost)" "$(__prompt_cwd)"
+	printf '\n%s%s%s\n%% ' "$(__prompt_userhost)" "$(__prompt_cwd)" "$(__prompt_nixenv)"
 }
 
 PS1="\$(__prompt)"
+PROMPT_COMMAND='export PS1="\$(__prompt)"'
