@@ -1,8 +1,6 @@
 cfg/gitconfig .gitconfig 0644
 cfg/profile .profile 0644
 cfg/bashrc .bashrc 0644
-cfg/miriway-shell .config/miriway-shell.config 0644
-cfg/yambar.yml .config/yambar/config.yml 0644
 cfg/tmux.conf .config/tmux/tmux.conf 0644
 cfg/batconfig .config/bat/config 0644
 cfg/mlerc .mlerc 0755
