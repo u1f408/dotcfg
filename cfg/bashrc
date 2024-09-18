@@ -1,6 +1,6 @@
 # this file should only be loaded for interactive shells
 [[ $- == *i* ]] || return
-. "$HOME/.aliases"
+source "$HOME/.aliases"
 
 HISTCONTROL=ignoreboth
 shopt -s histappend

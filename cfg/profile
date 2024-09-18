@@ -1,3 +1,8 @@
+# load home-manager session vars if present
+_HM_SESSION_VARS="/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh"
+[ -f "${_HM_SESSION_VARS}" ] && source "${_HM_SESSION_VARS}"
+unset _HM_SESSION_VARS
+
 # load bashrc if needed
 if [ "x${BASH_VERSION}x" != xx ]; then
 	[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
